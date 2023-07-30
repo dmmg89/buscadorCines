@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/backLightColor"
+
+    tools:context=".Start.LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Pantalla de Acceso"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:background="@color/secundaryColor"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_weight="0.5"
+        android:layout_marginTop="8dp">
+
+
+
+
+        <Button
+            android:id="@+id/enterWithoutAccountButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/backDarkColor"
+            android:text="Entrar Sin Cuenta" />
+
+        <Button
+            android:id="@+id/enterWithAccountButton"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+
+            android:layout_height="match_parent"
+
+            android:backgroundTint="@color/secundaryColor"
+            android:text="Entrar con Cuenta"/>
+
+
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/frameContentLogin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

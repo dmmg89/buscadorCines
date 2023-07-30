@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Start.LoginAccountFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <Switch
+            android:id="@+id/accountSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:textSize="14sp"
+            android:text=" ¿Ya tienes cuenta? "
+            android:checked="false"
+            />
+
+        <TextView
+            android:id="@+id/emailLoginLabel"
+            style="@style/TextLabelLogin"
+            android:visibility="visible"
+            android:text="Email"/>
+
+        <EditText
+            android:id="@+id/loginEmail"
+            style="@style/EditTextLogin"
+            android:visibility="visible"
+            />
+
+        <TextView
+            android:id="@+id/passwordLabelLogin"
+            style="@style/TextLabelLogin"
+            android:text="Contraseña"/>
+
+        <EditText
+            android:id="@+id/loginPassword"
+            style="@style/EditTextLogin"
+            android:inputType="textPassword"
+            />
+
+        <TextView
+            android:id="@+id/userLabelLogin"
+            style="@style/TextLabelLogin"
+            android:text="Confirma Contraseña"
+            />
+
+        <EditText
+            android:id="@+id/loginPassword2"
+            style="@style/EditTextLogin"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_marginHorizontal="24dp"
+
+                android:layout_weight="1"
+                android:text="Registrarse"
+                android:textSize="18dp"
+                android:layout_marginVertical="8dp"
+                android:backgroundTint="@color/secundaryColor"
+                />
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="0dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/primaryColor"
+                android:textSize="18dp"
+                android:text="Ingresar"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/googleButtonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="64dp"
+            android:text="Google"
+
+            android:backgroundTint="@color/grey"/>
+    </LinearLayout>
+
+
+</FrameLayout>

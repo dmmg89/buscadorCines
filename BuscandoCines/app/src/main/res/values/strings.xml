@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BuscandoCines</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="presentationSplash">Te damos la bienvenida al buscador de Cines.\nPuedes encontrar funciones y complejos cinematográficos de manera rápida.\nLa aplicación utiliza permisos para acceder a tu ubicación y darte una mejor experiencia. Gracias por escogernos</string>
+    <string name="noAccountMessage">\n Se recomienda ingresar con cuenta para poder disfrutar de la experiencia completa que puede ofrecer la aplicación. \n\n
+                                    \n El proceso de registro es muy rápido, aún así, puedes seguir usando la aplicación sin cuenta registrada.</string>
+</resources>
