@@ -14,9 +14,11 @@ import com.example.buscandocines.FranchiseOption.SelectedFranchise
 import com.example.buscandocines.MainContent.FranchiseFragment
 import com.example.buscandocines.R
 
+
+
+
 class CustomCinemaAdapter(val context: FranchiseFragment): RecyclerView.Adapter<CustomCinemaAdapter.ViewHolder>() {
 
-    val franchiseData = FranchiseEnum.values()
 
 
     val franchise = arrayOf(FranchiseEnum.CINEDOT.franchise,
@@ -75,6 +77,8 @@ class CustomCinemaAdapter(val context: FranchiseFragment): RecyclerView.Adapter<
 
         }
     }
+
+
 
 
 }

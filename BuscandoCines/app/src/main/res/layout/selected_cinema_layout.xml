@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardviewselectedcinema"
+    card_view:cardBackgroundColor ="#227C9D"
+    android:layout_margin="16dp"
+    app:cardElevation="8dp"
+    app:contentPadding="8dp"
+    app:cardCornerRadius="24dp"
+    >
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/cinema_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:text="Name of Complex"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/cinema_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/cinema_name"
+            android:text="Distance"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="40dp"
+            />
+
+        <Button
+            android:id="@+id/cinema_maps_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cinema_name"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:text="Ir" />
+
+            <!--android:layout_toEndOf="@id/cinema_distance"-->
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
+
+
