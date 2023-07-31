@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardviewmovies"
+    android:layout_margin="16dp"
+    card_view:cardBackgroundColor="#227C9D"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:contentPadding="8dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="90dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="false"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:id="@+id/movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pruebas"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_toEndOf="@id/movie_image"
+            android:layout_toRightOf="@id/movie_image"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/movie_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detalles"
+            android:layout_toEndOf="@id/movie_image"
+            android:layout_toRightOf="@id/movie_image"
+            android:layout_below="@id/movie_title"/>
+
+        <Button
+            android:id="@+id/movie_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/movie_details"
+            android:layout_marginHorizontal="8dp"
+            android:drawableLeft="@drawable/baseline_local_movies_24"
+            android:layout_toEndOf="@+id/movie_image"
+            android:text="Funciones" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

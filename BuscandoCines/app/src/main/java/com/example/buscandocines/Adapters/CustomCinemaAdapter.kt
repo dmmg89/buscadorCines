@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.buscandocines.FranchiseOption.SelectedFranchise
 import com.example.buscandocines.MainContent.FranchiseFragment
 import com.example.buscandocines.R
 
@@ -43,11 +44,11 @@ class CustomCinemaAdapter(val context: FranchiseFragment): RecyclerView.Adapter<
         holder.itemDetails.text = franchiseDetails[position]
         holder.itemImage.setImageResource(franchiseLogo[position])
         holder.itemButton.setOnClickListener {
-            /*val context = holder.itemView.context
-            val intent = Intent(context, SelectedTheater::class.java)
+            val context = holder.itemView.context
+            val intent = Intent(context, SelectedFranchise::class.java)
             intent.putExtra("Franchise",holder.itemFranchise.text)
             Log.i(ContentValues.TAG,"FRANQUICIA " + holder.itemFranchise.text)
-            context.startActivity(intent)*/
+            context.startActivity(intent)
         }
 
     }
