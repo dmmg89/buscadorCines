@@ -21,13 +21,6 @@ class CustomCinemaAdapter(val context: FranchiseFragment): RecyclerView.Adapter<
 
 
 
-
-
-
-
-    val franchiseData = FranchiseEnum.values()
-
-
     val franchise = arrayOf(FranchiseEnum.CINEDOT.franchise,
                             FranchiseEnum.CINEPOLIS.franchise,
                             FranchiseEnum.CINEMEX.franchise)

@@ -32,12 +32,11 @@
             android:id="@+id/cinema_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cinema"
-            android:textStyle="bold"
-            android:textSize="24sp"
             android:layout_toEndOf="@id/cinema_image"
             android:layout_toRightOf="@id/cinema_image"
-            android:layout_alignParentTop="true"/>
+            android:text="Cinema"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/cinema_details"

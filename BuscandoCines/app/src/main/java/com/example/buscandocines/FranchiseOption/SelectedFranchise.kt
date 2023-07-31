@@ -10,15 +10,16 @@ import com.example.buscandocines.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class SelectedFranchise : AppCompatActivity() {
 
-    val BASE_URL = "https://my-json-server.typicode.com/dmmg89/dbMovies/"
-    val listFranchise = mutableListOf<CinemaDataClass>()
+    val arreglo = mutableListOf<String>()
+/*
+    val BASE_URL = "https://my-json-server.typicode.com/dmmg89/dbMovies/"*/
+
     lateinit var franchise: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +28,7 @@ class SelectedFranchise : AppCompatActivity() {
 
         franchise = intent.getStringExtra("Franchise").toString()
 
-
-
-        val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
+     /*   val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -41,21 +40,23 @@ class SelectedFranchise : AppCompatActivity() {
                     var query = apiService.getCinemaByFranchise(franchise)
                     query.forEach{element ->
 
+                        arreglo.add(element.name)
 
                     }
 
-                   /* Log.d(TAG, "Solicitud de API")
+                   *//* Log.d(TAG, "Solicitud de API")
                     Log.d(TAG, "franchise" + apiService.getCinemaByFranchise(franchise).toString())
-                   *//* Log.d(TAG, "cinema" + apiService.getAllCinema().toString())*//*
-                   *//* Log.d(TAG, "id" + apiService.getCinemaByID(2).toString())*/
+                   *//**//* Log.d(TAG, "cinema" + apiService.getAllCinema().toString())*//**//*
+                   *//**//* Log.d(TAG, "id" + apiService.getCinemaByID(2).toString())*//*
                     Log.i(TAG, "Solicitud API Exitosa")
+                    Log.i(TAG, arreglo[1].toString())
 
                 }catch (e:Exception){
                     Log.w(TAG,"Error en consulta")
                 }
             }
 
-        }
+        }*/
 
 
 
@@ -65,9 +66,14 @@ class SelectedFranchise : AppCompatActivity() {
                 .commit()
         }
 
+
+
         val fragmentBody = SelectedFranchiseContentFragment()
+        fragmentBody.newInstance(franchise)
         supportFragmentManager.beginTransaction().add(R.id.theaterSelectedRecycler, fragmentBody)
             .commit()
 
     }
+
+
 }
