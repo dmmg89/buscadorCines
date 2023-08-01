@@ -20,13 +20,23 @@ class SelectedFranchise : AppCompatActivity() {
 /*
     val BASE_URL = "https://my-json-server.typicode.com/dmmg89/dbMovies/"*/
 
+
+
     lateinit var franchise: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selected_franchise)
 
+
+
+
         franchise = intent.getStringExtra("Franchise").toString()
+        Log.d(TAG, "Franquicia en activity" + franchise)
+
+
+
 
      /*   val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -69,11 +79,16 @@ class SelectedFranchise : AppCompatActivity() {
 
 
         val fragmentBody = SelectedFranchiseContentFragment()
-        fragmentBody.newInstance(franchise)
+
+        val bundle = Bundle()
+        bundle.putString("SelectedFranchise", franchise)
+        fragmentBody.arguments = bundle
+
         supportFragmentManager.beginTransaction().add(R.id.theaterSelectedRecycler, fragmentBody)
             .commit()
 
     }
+
 
 
 }

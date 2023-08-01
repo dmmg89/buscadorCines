@@ -52,6 +52,7 @@
         <EditText
             android:id="@+id/loginPassword2"
             style="@style/EditTextLogin"
+            android:inputType="textPassword"
             />
 
 
