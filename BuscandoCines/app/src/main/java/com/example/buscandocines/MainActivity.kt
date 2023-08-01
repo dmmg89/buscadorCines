@@ -55,6 +55,7 @@ try {
             when(it.itemId){
                 R.id.moviesBottom -> {
                     replaceFragmentContent(MoviesFragment())
+
                     getLocation()
                     Log.d(TAG, "Valores de ubicación")
                     Log.d(TAG, "Latitude " +CurrentUbication.latitude)
@@ -63,10 +64,12 @@ try {
                 }
                 R.id.theaterBottom -> {
                     replaceFragmentContent(FranchiseFragment())
+
                     getLocation()
                     Log.d(TAG, "Valores de ubicación")
                     Log.d(TAG, "Latitude " +CurrentUbication.latitude)
                     Log.d(TAG, "Latitude " +CurrentUbication.longitude)
+
                 }
                 R.id.accountBottom -> {
                     replaceFragmentContent(AccountFragment())
