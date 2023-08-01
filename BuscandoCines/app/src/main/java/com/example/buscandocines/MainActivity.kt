@@ -1,20 +1,48 @@
 package com.example.buscandocines
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.buscandocines.MainContent.AccountFragment
 import com.example.buscandocines.MainContent.FranchiseFragment
 import com.example.buscandocines.MainContent.MoviesFragment
 import com.example.buscandocines.databinding.ActivityMainBinding
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
 
 class MainActivity : AppCompatActivity() {
 
-private lateinit var binding: ActivityMainBinding
+
+    private lateinit var binding: ActivityMainBinding
+    lateinit var fusedLocationClient :FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+try {
+
+    fusedLocationClient = LocationServices.getFusedLocationProviderClient(baseContext)
+    val latitudGPS = CurrentUbication.latitude
+    val longitudGPS = CurrentUbication.longitude
+    /*fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)*/
+    getLocation()
+    Log.d(TAG, "Valores de ubicación")
+    Log.d(TAG, "Latitude " +latitudGPS)
+    Log.d(TAG, "Latitude " +longitudGPS)
+
+}catch (e:Exception){
+    Log.d(TAG, "No se consiguió la ubicación")
+}
 
 
         //binding - elementos ligados
@@ -27,11 +55,18 @@ private lateinit var binding: ActivityMainBinding
             when(it.itemId){
                 R.id.moviesBottom -> {
                     replaceFragmentContent(MoviesFragment())
+                    getLocation()
+                    Log.d(TAG, "Valores de ubicación")
+                    Log.d(TAG, "Latitude " +CurrentUbication.latitude)
+                    Log.d(TAG, "Latitude " +CurrentUbication.longitude)
 
                 }
                 R.id.theaterBottom -> {
                     replaceFragmentContent(FranchiseFragment())
-
+                    getLocation()
+                    Log.d(TAG, "Valores de ubicación")
+                    Log.d(TAG, "Latitude " +CurrentUbication.latitude)
+                    Log.d(TAG, "Latitude " +CurrentUbication.longitude)
                 }
                 R.id.accountBottom -> {
                     replaceFragmentContent(AccountFragment())
@@ -58,5 +93,52 @@ private lateinit var binding: ActivityMainBinding
         fragmentTransaction.commit()
     }
 
+
+    companion object{
+        const val PERMISSION_UBICATION = 33
+    }
+
+    private fun checkGranted(permission :String):Boolean{
+        return ActivityCompat.checkSelfPermission(this,permission) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun checkPermissions() =
+        checkGranted(Manifest.permission.ACCESS_FINE_LOCATION) && checkGranted(Manifest.permission.ACCESS_COARSE_LOCATION)
+
+
+    private fun requestPermissions(){
+        ActivityCompat.requestPermissions(this,
+        arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION,
+        Manifest.permission.ACCESS_FINE_LOCATION), PERMISSION_UBICATION
+        )
+    }
+
+    private fun isLocationEnabled(): Boolean{
+        var locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getLocation(){
+        if(checkPermissions()&&isLocationEnabled()){
+            try{
+            fusedLocationClient.locationAvailability
+            fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+                CurrentUbication.latitude = location?.latitude?.toDouble() ?: CurrentUbication.latitude
+                CurrentUbication.longitude = location?.longitude?.toDouble() ?: CurrentUbication.longitude
+            }
+            }catch (e:Exception){
+                Log.d(TAG, e.cause.toString())
+            }
+
+        }else{
+            requestPermissions()
+        }
+    }
+
+    object CurrentUbication{
+        var latitude =19.32400391485862
+        var longitude =-99.17896197076101
+    }
 
 }

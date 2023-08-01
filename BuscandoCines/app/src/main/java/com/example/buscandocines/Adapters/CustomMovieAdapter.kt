@@ -13,17 +13,23 @@ import com.example.buscandocines.R
 
 class CustomMovieAdapter : RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>(){
 
-    val titles = mutableListOf<String>("Spiderman: a través del spider-verso",
-        "Transformers: el despertar de las bestias",
-        "Post Mortem: fotos del más allá",
-        "Elementos")
+    val titles = mutableListOf<String>("Oppenheimer",
+                                        "Barbie",
+                                        "La consagración",
+                                         "Elementos")
 
 
-    val details = arrayOf("Clasificación: A \n Duración 136 min",
-        "Clasificación: B \n Duración: 126 min",
+    val details = arrayOf("Clasificación: B15 \n Duración 183 min",
         "Clasificación: B \n Duración: 115 min",
+        "Clasificación B15 \n Duración: 90 min",
         "Clasificación: A \n Duración 110 min"
     )
+
+
+   /* val images = arrayOf(R.drawable.oppenheimer_cartel,
+        R.drawable.barbie_cartel,
+        R.drawable.consagracion_cartel,
+        R.drawable.elementos_cartel)*/
 
     override fun getItemCount(): Int = titles.size
 
@@ -36,7 +42,7 @@ class CustomMovieAdapter : RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>()
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
        viewHolder.itemTitle.text = titles[position]
         viewHolder.itemDetails.text = details[position]
-        //viewHolder.itemImage.setImageResource(images[position])
+      /* viewHolder.itemImage.setImageResource(images[position])*/
 
         viewHolder.itemButton.setOnClickListener{
 
