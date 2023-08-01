@@ -1,13 +1,18 @@
 package com.example.buscandocines.Adapters
 
+
 import android.content.Intent
 import android.net.Uri
+
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+
 import androidx.core.content.ContextCompat.startActivity
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buscandocines.API.CinemaDataClass
 import com.example.buscandocines.R
@@ -30,6 +35,7 @@ class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>):
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dataItem = entryList[position]
         holder.itemName.text = dataItem.name
+
         holder.itemDistance.text = "${(position+1)*0.980} Km"
         holder.itemButton.setOnClickListener {
             val latitud = 19.347670912895815
@@ -39,6 +45,7 @@ class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>):
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntenUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             holder.itemView.context.startActivity(mapIntent)
+
 
 
 

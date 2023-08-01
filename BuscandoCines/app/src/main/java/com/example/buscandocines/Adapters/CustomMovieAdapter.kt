@@ -13,6 +13,7 @@ import com.example.buscandocines.R
 
 class CustomMovieAdapter : RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>(){
 
+
     val titles = mutableListOf<String>("Oppenheimer",
                                         "Barbie",
                                         "La consagración",
@@ -31,6 +32,10 @@ class CustomMovieAdapter : RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>()
         R.drawable.consagracion_cartel,
         R.drawable.elementos_cartel)*/
 
+
+
+
+   
     override fun getItemCount(): Int = titles.size
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -42,7 +47,9 @@ class CustomMovieAdapter : RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>()
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
        viewHolder.itemTitle.text = titles[position]
         viewHolder.itemDetails.text = details[position]
+
       /* viewHolder.itemImage.setImageResource(images[position])*/
+
 
         viewHolder.itemButton.setOnClickListener{
 

@@ -40,7 +40,9 @@ class SelectedFranchiseContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val franchiseFragment = arguments?.getString("SelectedFranchise")
+
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.selectedFranchiseRecycler)
 
@@ -72,7 +74,9 @@ class SelectedFranchiseContentFragment : Fragment() {
         Log.d(TAG,"Retrofit inicializado")
 
         val apiService = retrofit.create(APIQuery::class.java)
+
         var call = apiService.getCinemaByFranchise(franchise)
+
         return call
     }
 
