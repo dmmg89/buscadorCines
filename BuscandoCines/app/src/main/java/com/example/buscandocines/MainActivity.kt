@@ -55,7 +55,6 @@ try {
             when(it.itemId){
                 R.id.moviesBottom -> {
                     replaceFragmentContent(MoviesFragment())
-
                     getLocation()
                     Log.d(TAG, "Valores de ubicación")
                     Log.d(TAG, "Latitude " +CurrentUbication.latitude)
@@ -64,12 +63,10 @@ try {
                 }
                 R.id.theaterBottom -> {
                     replaceFragmentContent(FranchiseFragment())
-
                     getLocation()
                     Log.d(TAG, "Valores de ubicación")
                     Log.d(TAG, "Latitude " +CurrentUbication.latitude)
                     Log.d(TAG, "Latitude " +CurrentUbication.longitude)
-
                 }
                 R.id.accountBottom -> {
                     replaceFragmentContent(AccountFragment())
@@ -141,7 +138,7 @@ try {
 
     object CurrentUbication{
         var latitude =19.32400391485862
-        var longitude =  -99.17896197076101
+        var longitude =-99.17896197076101
     }
 
 }
