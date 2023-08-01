@@ -1,5 +1,6 @@
 package com.example.buscandocines.Adapters
 
+
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -7,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+
 import androidx.core.content.ContextCompat.startActivity
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buscandocines.API.CinemaDataClass
 import com.example.buscandocines.MainActivity
@@ -16,6 +19,7 @@ import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
+
 
 
 class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>): RecyclerView.Adapter<CustomSelectedCinemaAdapter.ViewHolder>() {
@@ -40,15 +44,18 @@ class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>):
         val cinemaLongitude = dataItem.longitude.toDouble()
 
         holder.itemName.text = dataItem.name
+
         holder.itemDistance.text = String.format("%.2f  km", distanceKM(cinemaLatitude,userLatitude,cinemaLongitude,userLongitude))
         holder.itemButton.setOnClickListener {
             val latitud = dataItem.latitude.toDouble()
             val longitud  = dataItem.longitude.toDouble()
             val mark = dataItem.franchise + "  " + dataItem.name
             val gmmIntenUri = Uri.parse("geo:$latitud,$longitud?q=$latitud,$longitud($mark)")
+
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntenUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             holder.itemView.context.startActivity(mapIntent)
+
 
 
 
