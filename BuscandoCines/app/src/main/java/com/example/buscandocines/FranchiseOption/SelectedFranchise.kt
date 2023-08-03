@@ -20,7 +20,9 @@ class SelectedFranchise : AppCompatActivity() {
 /*
     val BASE_URL = "https://my-json-server.typicode.com/dmmg89/dbMovies/"*/
 
+
         lateinit var franchise: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

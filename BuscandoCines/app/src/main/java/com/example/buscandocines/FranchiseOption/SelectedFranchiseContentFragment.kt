@@ -40,6 +40,7 @@ class SelectedFranchiseContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val franchiseFragment = arguments?.getString("SelectedFranchise")
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.selectedFranchiseRecycler)
@@ -84,14 +85,6 @@ class SelectedFranchiseContentFragment : Fragment() {
         return fragment
     }
 
-   /* companion object{
-        fun newInstance(franchise: String):SelectedFranchiseContentFragment{
-            val fragment = SelectedFranchiseContentFragment()
-            val args = Bundle()
-            args.putString("SelectedFranchise", franchise)
-            fragment.arguments = args
-            return fragment
-        }
-    }*/
+  
 
 }
