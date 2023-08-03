@@ -30,7 +30,6 @@ class SelectedFranchise : AppCompatActivity() {
 
 
 
-
         franchise = intent.getStringExtra("Franchise").toString()
         Log.d(TAG, "Franquicia en activity" + franchise)
 
@@ -78,11 +77,9 @@ class SelectedFranchise : AppCompatActivity() {
 
 
         val fragmentBody = SelectedFranchiseContentFragment()
-
         val bundle = Bundle()
         bundle.putString("SelectedFranchise", franchise)
         fragmentBody.arguments = bundle
-
         supportFragmentManager.beginTransaction().add(R.id.theaterSelectedRecycler, fragmentBody)
             .commit()
 
