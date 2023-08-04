@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buscandocines.API.APIQuery
@@ -18,6 +21,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.time.DayOfWeek
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+
 
 val URL_MOVIES = "https://my-json-server.typicode.com/dmmg89/dbMovies/"
 
@@ -41,6 +49,30 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerViewMovies = view.findViewById<RecyclerView>(R.id.moviesRecycler)
 
+        val spinnerWithDays = view.findViewById<Spinner>(R.id.spinnerDays)
+        val listDaysString = mutableListOf<String>()
+
+        for(item in getListOfDays()){
+            listDaysString.add(formatterFunction(item))
+        }
+
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, listDaysString)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerWithDays.adapter = adapter
+
+        spinnerWithDays.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+                val daySelected = listDaysString[position]
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+
+
 
         runBlocking {
             launch {
@@ -56,7 +88,6 @@ class MoviesFragment : Fragment() {
                 }
             }
         }
-
 
 
     }
@@ -98,6 +129,26 @@ class MoviesFragment : Fragment() {
         }
 
        return setMovies.toList()
+    }
+
+    private fun formatterFunction(rawDate: LocalDate): String{
+
+        val formatter = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM", Locale("es","ES"))
+        return rawDate.format(formatter)
+    }
+
+    private fun getListOfDays(): List<LocalDate>{
+        val currentDay = LocalDate.now()
+        var nextDay = currentDay.plusDays(1)
+        val listOfDays = mutableListOf<LocalDate>()
+        listOfDays.add(currentDay)
+
+        while (nextDay.dayOfWeek != DayOfWeek.WEDNESDAY){
+            listOfDays.add(nextDay)
+            nextDay = nextDay.plusDays(1)
+
+        }
+        return listOfDays
     }
 
 }

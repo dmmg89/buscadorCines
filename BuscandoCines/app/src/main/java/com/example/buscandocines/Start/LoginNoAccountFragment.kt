@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.buscandocines.MainActivity
 import com.example.buscandocines.R
 import com.example.buscandocines.databinding.FragmentLoginNoAccountBinding
@@ -40,12 +41,17 @@ class LoginNoAccountFragment : Fragment() {
             try{
                 Log.i(TAG, "Intento de Ingresar a MainActivity")
                 val intent = Intent(context,MainActivity::class.java)
+                showMessage("Ingreso sin usuario\nLas funciones serán limitadas")
                 startActivity(intent)
                 Log.d(TAG, "Intento terminado")
             }catch (e:Exception){
                 Log.w(TAG,"Actividad no inicializada")
             }
         }
+    }
+
+    private fun showMessage(message:String){
+        Toast.makeText(requireContext(),message, Toast.LENGTH_SHORT).show()
     }
 
 }

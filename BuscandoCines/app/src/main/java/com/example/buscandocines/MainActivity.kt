@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.example.buscandocines.MainContent.AccountFragment
 import com.example.buscandocines.MainContent.FranchiseFragment
 import com.example.buscandocines.MainContent.MoviesFragment
+import com.example.buscandocines.MainContent.TopMainFragment
 import com.example.buscandocines.databinding.ActivityMainBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -34,7 +35,6 @@ try {
     fusedLocationClient = LocationServices.getFusedLocationProviderClient(baseContext)
     val latitudGPS = CurrentUbication.latitude
     val longitudGPS = CurrentUbication.longitude
-    /*fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)*/
     getLocation()
     Log.d(TAG, "Valores de ubicación")
     Log.d(TAG, "Latitude " +latitudGPS)
@@ -49,6 +49,8 @@ try {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        setTopFragment(TopMainFragment())
         replaceFragmentContent(MoviesFragment())
         binding.bottomNavigationView.menu.findItem(R.id.moviesBottom).setChecked(true)
         binding.bottomNavigationView.setOnItemSelectedListener {
@@ -84,6 +86,12 @@ try {
 
     }
 
+    private fun setTopFragment(fragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.topContainer,fragment)
+        fragmentTransaction.commit()
+    }
 
 
     private fun replaceFragmentContent(fragment: Fragment){

@@ -23,7 +23,6 @@ class SelectedFranchise : AppCompatActivity() {
 
         lateinit var franchise: String
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selected_franchise)

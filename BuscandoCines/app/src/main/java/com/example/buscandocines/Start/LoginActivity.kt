@@ -2,6 +2,7 @@ package com.example.buscandocines.Start
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.buscandocines.MainContent.AccountFragment
 import com.example.buscandocines.R
@@ -24,10 +25,14 @@ class LoginActivity : AppCompatActivity() {
         loadFragment(LoginAccountFragment())
 
         enterWAccountBtn.setOnClickListener {
+            enterWAccountBtn.setBackgroundColor(getColor(R.color.backDarkColor))
+            enterWOAccountBtn.setBackgroundColor(getColor(R.color.grey))
             loadFragment(LoginAccountFragment())
         }
 
         enterWOAccountBtn.setOnClickListener {
+            enterWOAccountBtn.setBackgroundColor(getColor(R.color.backDarkColor))
+            enterWAccountBtn.setBackgroundColor(getColor(R.color.grey))
             loadFragment(LoginNoAccountFragment())
         }
 
@@ -44,5 +49,7 @@ class LoginActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frameContentLogin,fragment)
         fragmentTransaction.commit()
     }
+
+
 
 }

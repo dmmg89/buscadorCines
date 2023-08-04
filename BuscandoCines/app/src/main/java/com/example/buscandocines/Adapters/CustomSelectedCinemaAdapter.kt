@@ -18,7 +18,6 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 
-
 class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>): RecyclerView.Adapter<CustomSelectedCinemaAdapter.ViewHolder>() {
 
 
@@ -42,14 +41,13 @@ class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>):
 
 
         holder.itemName.text = dataItem.name
-
         holder.itemDistance.text = String.format("%.2f  km", distanceKM(cinemaLatitude,userLatitude,cinemaLongitude,userLongitude))
+        holder.itemPrice.text = dataItem.prices
         holder.itemButton.setOnClickListener {
             val latitud = dataItem.latitude.toDouble()
             val longitud  = dataItem.longitude.toDouble()
             val mark = dataItem.franchise + "  " + dataItem.name
             val gmmIntenUri = Uri.parse("geo:$latitud,$longitud?q=$latitud,$longitud($mark)")
-
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntenUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             holder.itemView.context.startActivity(mapIntent)
@@ -63,11 +61,13 @@ class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>):
     inner class ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
         var itemName :TextView
         var itemDistance : TextView
+        val itemPrice: TextView
         var itemButton : Button
 
         init {
             itemName = itemView.findViewById(R.id.cinema_name)
             itemDistance = itemView.findViewById(R.id.cinema_distance)
+            itemPrice = itemView.findViewById(R.id.cinema_price)
             itemButton = itemView.findViewById(R.id.cinema_maps_button)
             itemButton.setBackgroundColor(itemView.context.resources.getColor(R.color.secundaryColor))
         }

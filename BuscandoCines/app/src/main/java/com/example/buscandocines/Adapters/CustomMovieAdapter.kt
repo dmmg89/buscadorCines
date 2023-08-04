@@ -19,7 +19,6 @@ class CustomMovieAdapter (private val entryList: List<MovieLightDataClass>): Rec
 
 
 
-
    /* val images = arrayOf(R.drawable.oppenheimer_cartel,
         R.drawable.barbie_cartel,
         R.drawable.consagracion_cartel,

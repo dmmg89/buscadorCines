@@ -6,7 +6,7 @@
 
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/backLightColor"
+    android:background="@color/white"
 
     tools:context=".Start.LoginActivity">
 
@@ -27,8 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
         android:layout_weight="0.5"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical">
 
 
 
@@ -36,9 +38,9 @@
         <Button
             android:id="@+id/enterWithoutAccountButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/backDarkColor"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:backgroundTint="@color/grey"
             android:text="Entrar Sin Cuenta" />
 
         <Button
@@ -46,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_weight="3"
 
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
 
             android:backgroundTint="@color/secundaryColor"
             android:text="Entrar con Cuenta"/>

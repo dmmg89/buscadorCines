@@ -1,60 +1,128 @@
 package com.example.buscandocines.Start
 
+import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Switch
+import android.widget.TextView
+import android.widget.Toast
+import com.example.buscandocines.MainActivity
 import com.example.buscandocines.R
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginAccountFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginAccountFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+lateinit var auth: FirebaseAuth
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_account, container, false)
+        val viewContent = inflater.inflate(R.layout.fragment_login_account, container, false)
+
+
+        return viewContent
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginAccountFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginAccountFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        FirebaseApp.initializeApp(view.context)
+        auth = Firebase.auth
+
+        val switchAccount = view.findViewById<Switch>(R.id.accountSwitch)
+        val emailEdit = view.findViewById<EditText>(R.id.loginEmail)
+        val passwordEdit = view.findViewById<EditText>(R.id.loginPassword)
+        val passwordConfirmLabel = view.findViewById<TextView>(R.id.userLabelLogin)
+        val passwordConfirmEdit = view.findViewById<EditText>(R.id.loginPassword2)
+        val registerButton = view.findViewById<Button>(R.id.registerButton)
+        val entryButton = view.findViewById<Button>(R.id.loginButton)
+        switchAccount.setOnCheckedChangeListener{_, isChecked->
+            if(isChecked){
+
+                passwordConfirmLabel.visibility = View.INVISIBLE
+                passwordConfirmEdit.visibility = View.INVISIBLE
+                registerButton.visibility = View.GONE
+                entryButton.visibility = View.VISIBLE
+
+
+            }else{
+                passwordConfirmLabel.visibility = View.VISIBLE
+                passwordConfirmEdit.visibility = View.VISIBLE
+                registerButton.visibility = View.VISIBLE
+                entryButton.visibility = View.GONE
             }
+        }
+
+        registerButton.setOnClickListener {
+            val email = emailEdit.text
+            val password = passwordEdit.text
+            val password2 = passwordConfirmEdit.text
+            if (password.toString() == password2.toString()){
+                createUser(email.toString(), password.toString())
+
+            }else{
+                showMessage("Las contraseñas no coinciden")
+            }
+        }
+
+        entryButton.setOnClickListener {
+            val email = emailEdit.text
+            val password = passwordEdit.text
+            signIn(email.toString(),password.toString())
+
+
+        }
+
+
+    }
+
+    private fun showMessage(message:String){
+        Toast.makeText(requireContext(),message,Toast.LENGTH_SHORT).show()
+    }
+
+    private fun createUser(email:String,password:String){
+        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener {
+            task->
+            if(task.isSuccessful){
+                showMessage("Usuario creado")
+
+            }else{
+                showMessage("Error: Intente de nuevo")
+            }
+        }
+    }
+
+    private fun signIn(email: String,password: String){
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
+            task ->
+            if (task.isSuccessful){
+                showMessage("Bienvenid@ -  $email")
+                try{
+                    Log.i(ContentValues.TAG, "Intento de Ingresar a MainActivity")
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra("User", email)
+                    startActivity(intent)
+                    Log.d(ContentValues.TAG, "Intento terminado")
+                }catch (e:Exception){
+                    Log.w(ContentValues.TAG,"Actividad no inicializada")
+                }
+            }else{
+                showMessage("Datos incorrectos")
+            }
+        }
     }
 }
