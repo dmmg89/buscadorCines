@@ -35,7 +35,6 @@ try {
     fusedLocationClient = LocationServices.getFusedLocationProviderClient(baseContext)
     val latitudGPS = CurrentUbication.latitude
     val longitudGPS = CurrentUbication.longitude
-
     getLocation()
     Log.d(TAG, "Valores de ubicación")
     Log.d(TAG, "Latitude " +latitudGPS)
@@ -49,6 +48,7 @@ try {
         //binding - elementos ligados
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         setTopFragment(TopMainFragment())
         replaceFragmentContent(MoviesFragment())

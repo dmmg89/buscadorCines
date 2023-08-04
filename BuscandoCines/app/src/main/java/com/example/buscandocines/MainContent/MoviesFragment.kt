@@ -26,6 +26,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
+
 val URL_MOVIES = "https://my-json-server.typicode.com/dmmg89/dbMovies/"
 
 class MoviesFragment : Fragment() {
@@ -47,6 +48,7 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerViewMovies = view.findViewById<RecyclerView>(R.id.moviesRecycler)
+
         val spinnerWithDays = view.findViewById<Spinner>(R.id.spinnerDays)
         val listDaysString = mutableListOf<String>()
 
@@ -86,7 +88,6 @@ class MoviesFragment : Fragment() {
                 }
             }
         }
-
 
 
     }

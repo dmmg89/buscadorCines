@@ -17,17 +17,6 @@ import com.example.buscandocines.R
 
 class CustomMovieAdapter (private val entryList: List<MovieLightDataClass>): RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>(){
 
-   /* val titles = mutableListOf<String>("Oppenheimer",
-                                        "Barbie",
-                                        "La consagración",
-                                         "Elementos")
-
-
-    val details = arrayOf("Clasificación: B15 \n Duración 183 min",
-        "Clasificación: B \n Duración: 115 min",
-        "Clasificación B15 \n Duración: 90 min",
-        "Clasificación: A \n Duración 110 min"
-    )*/
 
 
    /* val images = arrayOf(R.drawable.oppenheimer_cartel,
@@ -35,7 +24,9 @@ class CustomMovieAdapter (private val entryList: List<MovieLightDataClass>): Rec
         R.drawable.consagracion_cartel,
         R.drawable.elementos_cartel)*/
 
+
     override fun getItemCount(): Int = entryList.size
+
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.movie_card_layout, viewGroup, false)

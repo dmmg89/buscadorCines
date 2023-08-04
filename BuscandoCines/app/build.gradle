@@ -44,10 +44,11 @@ viewBinding{
 
 dependencies {
 
-    //firebase
 
+    //firebase
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     implementation 'com.google.firebase:firebase-auth-ktx'
+
 
     //GPS
     implementation 'com.google.android.gms:play-services-location:21.0.1'
