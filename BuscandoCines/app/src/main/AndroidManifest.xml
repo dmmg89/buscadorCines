@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -14,30 +17,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuscandoCines"
         tools:targetApi="31">
-
+        <activity
+            android:name=".MovieOption.SelectedMovie"
+            android:exported="false" />
+        <activity
+            android:name=".FranchiseOption.SelectedFranchise"
+            android:exported="false" />
         <activity
             android:name=".Start.SplashActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".Start.LoginActivity"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
-
-           <!-- <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-
+            android:exported="true" />
     </application>
 
 </manifest>
