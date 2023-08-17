@@ -17,7 +17,6 @@ import com.example.buscandocines.MainContent.AccountFragment
 import com.example.buscandocines.MainContent.FranchiseFragment
 import com.example.buscandocines.MainContent.MoviesFragment
 import com.example.buscandocines.MainContent.PremiereFragment
-
 import com.example.buscandocines.MainContent.TopMainFragment
 import com.example.buscandocines.databinding.ActivityMainBinding
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -52,6 +51,7 @@ try {
     fusedLocationClient = LocationServices.getFusedLocationProviderClient(baseContext)
     val latitudGPS = CurrentUbication.latitude
     val longitudGPS = CurrentUbication.longitude
+
     getLocation()
     Log.d(TAG, "Valores de ubicación")
     Log.d(TAG, "Latitude " +latitudGPS)
