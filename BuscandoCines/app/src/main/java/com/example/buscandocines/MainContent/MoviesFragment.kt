@@ -29,6 +29,8 @@ import java.util.Locale
 
 val URL_MOVIES = "https://my-json-server.typicode.com/dmmg89/dbMovies/"
 
+val URL_MOVIES = "https://my-json-server.typicode.com/dmmg89/dbMovies/"
+
 class MoviesFragment : Fragment() {
 
 
@@ -92,7 +94,50 @@ class MoviesFragment : Fragment() {
 
     }
 
+    private fun lightenerList(rawData : List<MovieDataClass>): List<MovieLightDataClass>{
+        val setMovies = mutableSetOf<MovieLightDataClass>()
 
+        try {
+            Log.d(TAG, "Inicial lightener")
+            for(index in 1..rawData.size){
+                Log.d(TAG,"Inicio bucle")
+                val itemList = rawData[index]
+                var movieName = itemList.name
+                var movieDetails = itemList.details
+                var movieDay = itemList.day
+
+                var movieLight = MovieLightDataClass(movieName,movieDetails,movieDay)
+                Log.d(TAG,"Creado")
+
+                setMovies.add(movieLight)
+            }
+
+        }catch (e:Exception){
+            Log.d(TAG, "No se concluyó lightener", e.cause)
+        }
+
+       return setMovies.toList()
+    }
+
+    private fun formatterFunction(rawDate: LocalDate): String{
+
+        val formatter = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM", Locale("es","ES"))
+        return rawDate.format(formatter)
+    }
+
+    private fun getListOfDays(): List<LocalDate>{
+        val currentDay = LocalDate.now()
+        var nextDay = currentDay.plusDays(1)
+        val listOfDays = mutableListOf<LocalDate>()
+        listOfDays.add(currentDay)
+
+        while (nextDay.dayOfWeek != DayOfWeek.WEDNESDAY){
+            listOfDays.add(nextDay)
+            nextDay = nextDay.plusDays(1)
+
+        }
+        return listOfDays
+    }
 
     private suspend fun getAllMovies():List<MovieDataClass>{
         val retrofit = Retrofit.Builder().baseUrl(URL_MOVIES)

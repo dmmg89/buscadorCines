@@ -37,6 +37,7 @@ class CustomMovieAdapter (private val entryList: List<MovieLightDataClass>): Rec
 
     override fun getItemCount(): Int = entryList.size
 
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.movie_card_layout, viewGroup, false)
         return ViewHolder(view)
