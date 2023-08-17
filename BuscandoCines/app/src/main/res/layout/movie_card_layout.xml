@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="Pruebas"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             />
@@ -40,7 +40,7 @@
             android:id="@+id/movie_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:text="Detalles"
             android:gravity="center_horizontal"
             android:layout_below="@id/movie_image"
@@ -51,11 +51,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/movie_details"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
 
-            android:textSize="10sp"
-            android:drawableLeft="@drawable/baseline_local_movies_24"
 
-            android:text="Funciones" />
+            android:drawableBottom="@drawable/baseline_local_movies_24"
+            android:text="Funciones"
+            android:textSize="14sp" />
 
 
     </RelativeLayout>

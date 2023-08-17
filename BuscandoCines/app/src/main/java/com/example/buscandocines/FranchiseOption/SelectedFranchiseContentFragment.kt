@@ -84,4 +84,14 @@ class SelectedFranchiseContentFragment : Fragment() {
         return fragment
     }
 
+   /* companion object{
+        fun newInstance(franchise: String):SelectedFranchiseContentFragment{
+            val fragment = SelectedFranchiseContentFragment()
+            val args = Bundle()
+            args.putString("SelectedFranchise", franchise)
+            fragment.arguments = args
+            return fragment
+        }
+    }*/
+
 }
