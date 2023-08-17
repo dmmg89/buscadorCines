@@ -19,7 +19,6 @@
 
         <TextView
             android:id="@+id/cinema_name"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -55,7 +54,6 @@
             android:id="@+id/cinema_maps_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_below="@id/cinema_distance"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"

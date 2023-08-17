@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <Spinner
             android:id="@+id/spinnerDays"
+
+
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:theme="@style/SpinnerDays"
@@ -30,7 +31,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerDays" />
+            app:layout_constraintTop_toBottomOf="@+id/spinnerDays"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

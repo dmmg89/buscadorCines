@@ -39,7 +39,6 @@ class CustomSelectedCinemaAdapter(private val entryList: List<CinemaDataClass>):
         val cinemaLatitude = dataItem.latitude.toDouble()
         val cinemaLongitude = dataItem.longitude.toDouble()
 
-
         holder.itemName.text = dataItem.name
         holder.itemDistance.text = String.format("%.2f  km", distanceKM(cinemaLatitude,userLatitude,cinemaLongitude,userLongitude))
         holder.itemPrice.text = dataItem.prices
