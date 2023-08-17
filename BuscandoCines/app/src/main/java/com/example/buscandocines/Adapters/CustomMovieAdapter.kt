@@ -1,6 +1,8 @@
 package com.example.buscandocines.Adapters
 
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,24 +10,32 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.buscandocines.API.MovieDataClass
+import com.example.buscandocines.API.MovieLightDataClass
 import com.example.buscandocines.MovieOption.SelectedMovie
 import com.example.buscandocines.R
 
-class CustomMovieAdapter : RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>(){
+class CustomMovieAdapter (private val entryList: List<MovieLightDataClass>): RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>(){
 
-    val titles = mutableListOf<String>("Spiderman: a través del spider-verso",
-        "Transformers: el despertar de las bestias",
-        "Post Mortem: fotos del más allá",
-        "Elementos")
+   /* val titles = mutableListOf<String>("Oppenheimer",
+                                        "Barbie",
+                                        "La consagración",
+                                         "Elementos")
 
 
-    val details = arrayOf("Clasificación: A \n Duración 136 min",
-        "Clasificación: B \n Duración: 126 min",
+    val details = arrayOf("Clasificación: B15 \n Duración 183 min",
         "Clasificación: B \n Duración: 115 min",
+        "Clasificación B15 \n Duración: 90 min",
         "Clasificación: A \n Duración 110 min"
-    )
+    )*/
 
-    override fun getItemCount(): Int = titles.size
+
+   /* val images = arrayOf(R.drawable.oppenheimer_cartel,
+        R.drawable.barbie_cartel,
+        R.drawable.consagracion_cartel,
+        R.drawable.elementos_cartel)*/
+
+    override fun getItemCount(): Int = entryList.size
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.movie_card_layout, viewGroup, false)
@@ -34,15 +44,18 @@ class CustomMovieAdapter : RecyclerView.Adapter<CustomMovieAdapter.ViewHolder>()
 
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-       viewHolder.itemTitle.text = titles[position]
-        viewHolder.itemDetails.text = details[position]
-        //viewHolder.itemImage.setImageResource(images[position])
+        val dataItem = entryList[position]
+       viewHolder.itemTitle.text = dataItem.name
+        viewHolder.itemDetails.text = dataItem.details
+      /* viewHolder.itemImage.setImageResource(images[position])*/
 
         viewHolder.itemButton.setOnClickListener{
 
             val context = viewHolder.itemView.context
             val intent = Intent(context, SelectedMovie::class.java)
-            intent.putExtra("Pelicula", "Nombre")
+            intent.putExtra("Movie", viewHolder.itemTitle.text)
+            intent.putExtra("Details", viewHolder.itemDetails.text)
+            Log.i(TAG, "Movie in Extras " + viewHolder.itemTitle.text)
             context.startActivity(intent)
 
 

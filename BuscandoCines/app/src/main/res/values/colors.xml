@@ -2,13 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primaryColor">#F5C058</color>
 
-    <color name="secundaryColor">#6A82F4</color>
-    <color name="secundaryColor2">#CFFAF9</color>
 
     <color name="grey">#808080</color>
 
-    <color name="backLightColor">#CCDBEB</color>
-    <color name="backDarkColor">#6382A1</color>
+
+
+    <color name="backLightColor">#E5EFF6</color>
+    <color name="backDarkColor">#77A4D1</color>
+    <color name="primaryColor">#DDBB9B</color>
+
+    <color name="secundaryColor">#9B9CDD</color>
+    <color name="secundaryColor2">#D8F1F2</color>
 </resources>

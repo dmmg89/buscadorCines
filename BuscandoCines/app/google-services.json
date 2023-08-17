@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "798959044255",
+    "project_id": "buscador-peliculas-2289d",
+    "storage_bucket": "buscador-peliculas-2289d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798959044255:android:7a736d8931d5ad353044aa",
+        "android_client_info": {
+          "package_name": "com.example.buscandocines"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798959044255-3a9huuub1kdun40ols5ti9hbqc24i07u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_CLJpI6n2CxYAHzTomR7lfccO6pEIKXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798959044255-3a9huuub1kdun40ols5ti9hbqc24i07u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

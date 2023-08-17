@@ -3,5 +3,17 @@
     <style name="Base.Theme.BuscandoCines" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">#95A6B5</item>
+        <item name="colorAccent">#228A93</item>
+        <item name="android:textColor">@color/white</item>
+
+     <!--   <item name="backLightColor">#95A6B5</item>
+        <item name="backDarkColor">#2E5273</item>
+        <item name="primaryColor">#228A93</item>
+
+        <item name="secundaryColor">#575F9A</item>
+        <item name="secundaryColor2">#2E3476</item>-->
+
+
     </style>
 </resources>

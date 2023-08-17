@@ -24,7 +24,7 @@ val BASE_URL = "https://my-json-server.typicode.com/dmmg89/dbMovies/"
 
 class SelectedFranchiseContentFragment : Fragment() {
 
-    val franchiseFragment = "Cinepolis"/*arguments?.getString("SelectedFranchise")*/
+
 
 
 
@@ -40,6 +40,7 @@ class SelectedFranchiseContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val franchiseFragment = arguments?.getString("SelectedFranchise")
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.selectedFranchiseRecycler)
 
@@ -71,8 +72,7 @@ class SelectedFranchiseContentFragment : Fragment() {
         Log.d(TAG,"Retrofit inicializado")
 
         val apiService = retrofit.create(APIQuery::class.java)
-        var call = apiService.getCinemaByFranchise(franchiseFragment.toString())
-        Log.d(TAG, "consulta " + call[1].name)
+        var call = apiService.getCinemaByFranchise(franchise)
         return call
     }
 
